@@ -5,5 +5,5 @@
 @tailwind utilities;
 
 .footer {
-  @apply flex flex-col items-center justify-center border-t-4 border-fuchsia-500 bg-lime-500 px-3 py-2;
+  @apply flex flex-col items-center justify-center border-t-4 border-fuchsia-500 bg-lime-500 px-3 py-2 text-sm;
 }
