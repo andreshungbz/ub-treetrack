@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default async function AddPlant() {
-  const supabase = createSupabaseServerComponentClient();
+  const supabase = await createSupabaseServerComponentClient();
 
   const { data: plants, error } = await supabase.rpc("get_random_plants");
 

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 export default async function PlantPopularity() {
-  const supabase = createSupabaseServerComponentClient();
+  const supabase = await createSupabaseServerComponentClient();
 
   const getPlantPopularityReport = async () => {
     const { data: plants, error } = await supabase

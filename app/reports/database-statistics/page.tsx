@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 export default async function DatabaseStatistics() {
-  const supabase = createSupabaseServerComponentClient();
+  const supabase = await createSupabaseServerComponentClient();
 
   const getDatabaseStatistics = async () => {
     const { count: plantCount, error: plantError } = await supabase

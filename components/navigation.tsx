@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default async function NavigationBar() {
-  const supabase = createSupabaseServerComponentClient();
+  const supabase = await createSupabaseServerComponentClient();
 
   // authenticate the user session
   const {

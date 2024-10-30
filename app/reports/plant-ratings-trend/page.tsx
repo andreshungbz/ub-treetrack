@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default async function PlantRatingsTrend() {
-  const supabase = createSupabaseServerComponentClient();
+  const supabase = await createSupabaseServerComponentClient();
 
   // calculate the date 5 months ago from the current date
   const fiveMonthsAgo = new Date();

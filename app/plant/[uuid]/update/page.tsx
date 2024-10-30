@@ -13,12 +13,11 @@ export const metadata: Metadata = {
   description: "Update a plant in the UB TreeTrack database",
 };
 
-export default async function UpdatePlant({
-  params,
-}: {
-  params: { uuid: string };
+export default async function UpdatePlant(props: {
+  params: Promise<{ uuid: string }>;
 }) {
-  const supabase = createSupabaseServerComponentClient();
+  const params = await props.params;
+  const supabase = await createSupabaseServerComponentClient();
 
   // fetch plant information from Supabase
   const { data: plant, error } = await supabase

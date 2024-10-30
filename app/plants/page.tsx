@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Plants() {
-  const supabase = createSupabaseServerComponentClient();
+  const supabase = await createSupabaseServerComponentClient();
 
   const { data: plants, error } = await supabase
     .from("plants")

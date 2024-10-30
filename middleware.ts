@@ -8,7 +8,7 @@ export async function middleware(request: NextRequest) {
     },
   });
 
-  const supabase = createSupabaseReqResClient(request, response);
+  const supabase = await createSupabaseReqResClient(request, response);
 
   const {
     data: { user },

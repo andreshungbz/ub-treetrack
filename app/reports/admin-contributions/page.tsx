@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 export default async function AdminContributions() {
-  const supabase = createSupabaseServerComponentClient();
+  const supabase = await createSupabaseServerComponentClient();
 
   const getAdministratorContributions = async () => {
     const { data, error } = await supabase.from("administrators").select(`

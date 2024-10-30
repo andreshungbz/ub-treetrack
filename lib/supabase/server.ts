@@ -1,22 +1,22 @@
 import { type NextRequest, type NextResponse } from "next/server";
-import { cookies } from "next/headers";
+import { cookies, type UnsafeUnwrappedCookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
 
 // server component can only get cookies and not set them, hence the "component" check
 export function createSupabaseServerClient(component: boolean = false) {
-  const cookieStore = cookies();
+  const cookieStore = (cookies() as unknown as UnsafeUnwrappedCookies);
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
-        getAll() {
-          return cookieStore.getAll();
+        async getAll() {
+          return (await cookieStore).getAll();
         },
         setAll(cookiesToSet) {
           if (component) return;
-          cookiesToSet.forEach(({ name, value, options }) =>
-            cookieStore.set(name, value, options),
+          cookiesToSet.forEach(async ({ name, value, options }) =>
+            (await cookieStore).set(name, value, options),
           );
         },
       },
@@ -24,16 +24,16 @@ export function createSupabaseServerClient(component: boolean = false) {
   );
 }
 
-export function createSupabaseServerComponentClient() {
-  cookies().getAll();
+export async function createSupabaseServerComponentClient() {
+  (await cookies()).getAll();
   return createSupabaseServerClient(true);
 }
 
-export function createSupabaseReqResClient(
+export async function createSupabaseReqResClient(
   req: NextRequest,
   res: NextResponse,
 ) {
-  cookies().getAll();
+  (await cookies()).getAll();
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,

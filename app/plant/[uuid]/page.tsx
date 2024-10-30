@@ -85,11 +85,10 @@ async function getPlantRatings(uuid: string): Promise<Rating[] | null> {
   return plantRatings;
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { uuid: string };
+export async function generateMetadata(props: {
+  params: Promise<{ uuid: string }>;
 }): Promise<Metadata> {
+  const params = await props.params;
   const plant = await getPlant(params.uuid);
 
   if (!plant) {
@@ -103,11 +102,10 @@ export async function generateMetadata({
   };
 }
 
-export default async function PlantPage({
-  params,
-}: {
-  params: { uuid: string };
+export default async function PlantPage(props: {
+  params: Promise<{ uuid: string }>;
 }) {
+  const params = await props.params;
   const plant = await getPlant(params.uuid);
   if (!plant) {
     notFound();
