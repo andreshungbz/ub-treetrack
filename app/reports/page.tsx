@@ -15,7 +15,7 @@ import { Metadata } from "next";
 
 // metadata
 export const metadata: Metadata = {
-  title: "UB TreeTrack Reports",
+  title: "System Reports",
   description: "Reports on the UB TreeTrack system",
 };
 
@@ -52,7 +52,7 @@ export default async function Reports() {
 
   return (
     <>
-      <h1 className="h1-main">UB TreeTrack Reports</h1>
+      <h1 className="h1-main">System Reports</h1>
       <Table className="mx-auto mt-4 bg-white md:w-2/3">
         <TableCaption>
           List of available reports on the UB TreeTrack system.
