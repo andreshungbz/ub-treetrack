@@ -48,6 +48,13 @@ export default async function Reports() {
         "Number of ratings entered into the system per month in the last 6 months",
       report_url: "/reports/plant-ratings-trend",
     },
+    {
+      report_id: 5,
+      report_name: "Plant/QR Trend",
+      report_description:
+        "Number of plants and QR codes submitted per month in the last 6 months",
+      report_url: "/reports/plant-qr-trend",
+    },
   ];
 
   return (
