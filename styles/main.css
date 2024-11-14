@@ -18,10 +18,10 @@
 
 .ub-link,
 .plants-link {
-  color: #86198f;
+  @apply text-blue-600 underline;
 }
 
 .ub-link:hover,
 .plants-link:hover {
-  color: #b565c0;
+  @apply text-blue-400;
 }

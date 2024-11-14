@@ -23,9 +23,9 @@
 }
 
 .prof-link {
-  color: #86198f;
+  @apply text-blue-600 underline;
 }
 
 .prof-link:hover {
-  color: #b565c0;
+  @apply text-blue-400;
 }

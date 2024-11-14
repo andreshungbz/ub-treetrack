@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="footer">
       <Link
         href="https://github.com/andreshungbz/ub-treetrack"
-        className="text-blue-900 underline"
+        className="text-blue-600 underline"
       >
         GitHub Repository
       </Link>
